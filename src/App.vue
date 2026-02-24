@@ -25,7 +25,7 @@ const classCounter = computed(() => {
   }
 })
 
-const numbersAdd = ref([1, 2]);
+const numbersAdd = ref([]);
 const numeroDuplicado = ref(false);
 
 function agregar() {
@@ -48,7 +48,7 @@ const classAgregar = computed(() => {
   if (busquedaNumero) {
     numeroDuplicado.value = true;
     return true;
-  }  else {
+  } else {
     numeroDuplicado.value = false;
     return false;
   }
@@ -94,11 +94,12 @@ const classAgregar = computed(() => {
                 </v-col>
               </v-row>
               <!-- <p v-if="numeroDuplicado" class="text-red-500">Este numero ya existe</p> -->
-   <v-card class="mx-auto p-8" max-width="300">
-                <v-list color="green-darken-1" :items="numbersAdd" ></v-list>
+              <v-card class="mx-auto p-8" max-width="300">
+                <v-list color="green-darken-1" :items="numbersAdd"></v-list>
+                <v-list-item v-if="numbersAdd.length === 0">No hay numeros agregados</v-list-item>
               </v-card>
 
-           
+
               <!-- <li v-for="number in numbersAdd" :key="number">
                   {{ number }}
                 </li> -->
